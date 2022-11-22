@@ -4,10 +4,7 @@
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :price %>
-    <%= f.input :photo, label: 'Upload your island cover photo:', as: :file %>
-    <%= simple_form_for(@island) do |f| %>
     <%= f.input :photos, label: 'Upload a selection of island photos:', as: :file, input_html: { multiple: true } %>
-  <% end %>
     <%= f.button :submit, class: "btn-search" %>
   <% end %>
 </div>
