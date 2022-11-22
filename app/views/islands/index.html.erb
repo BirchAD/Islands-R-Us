@@ -1,1 +1,32 @@
-<h1>This is all the islands</h1>
+
+<% @islands.each do |island| %>
+<%= island.name %>
+<% end %>
+
+<body class="text-center">
+<!-- 1. Mobile full-screen, laptop half-half -->
+    <div class="container">
+      <h2>This are all the islands</h2>
+      <div class="row">
+
+      <div class="col-12 col-lg-4">
+        <div class="card bg-light">
+          <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=300>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="card bg-light">
+          <img src="https://media.cntraveler.com/photos/5c64813396daf10fa54e3d71/master/w_4000,h_2648,c_limit/Saba-Island_GettyImages-sb10070113b-001.jpg" alt="island" width=300>
+        </div>
+      </div>
+
+      <div class="col-12 col-lg-4">
+        <div class="card bg-light">
+          <img src="https://media.cntraveler.com/photos/5c64813396daf10fa54e3d71/master/w_4000,h_2648,c_limit/Saba-Island_GettyImages-sb10070113b-001.jpg" alt="island" width=300>
+        </div>
+      </div>
+      </div>
+
+    </div>
+  </body>
