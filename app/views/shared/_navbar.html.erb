@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
     <div class="container-fluid">
-      <%= link_to "root", class: "navbar-brand" do %>
+      <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "https://res.cloudinary.com/dm6g22zui/image/upload/v1669114514/baaifrramr63ossu5e76.jpg" %>
       <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,27 +9,28 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
+          <% if !current_user %>
             <li class="nav-item active">
               <%= link_to "Become a host", "#", class: "nav-link" %>
             </li>
-            <%# <% <li class="nav-item">
-              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
-            <%# <% </li> %> %> %>
             <li class="nav-item">
-              <%= link_to "Help", "#", class: "nav-link" %>
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
             </li>
-            <%# <% <li class="nav-item"> %>
-              <%# <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %> %>
-            <%# </li> %>
             <li class="nav-item">
               <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
             </li>
+            </li>
+          <% else %>
+            <li class="nav-item">
             <li class="nav-item dropdown">
-              <%# <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%# <% if current_user.photo.attached? %>
+            <%# <% else %>
+              <%# <%= image_tag "zakaria-ahada-VGR_ReUCqNw-unsplash", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%# <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Action", "#", class: "dropdown-item" %>
-                <%= link_to "Another action", "#", class: "dropdown-item" %>
-                <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+                <%= link_to "My bookings", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
               </div>
             </li>
           <%# else %>
@@ -37,7 +38,8 @@
               <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
             <!--/li-->
           <%# end %>
+          <% end %>
         </ul>
       </div>
     </div>
-  </div>
+</div>
