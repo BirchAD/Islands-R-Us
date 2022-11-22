@@ -8,6 +8,22 @@ h1, h2 {
   font-size: 5rem;
 }
 
+.island {
+  margin: 70px auto;
+  padding: 20px;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+}
+
+.island:hover {
+  margin-bottom: 150px auto;
+  padding: 50px;
+  background: rgb(178, 219, 216);
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+}
 // .picture {
 //   background-image: ;
 // }
