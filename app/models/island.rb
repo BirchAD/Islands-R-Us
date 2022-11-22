@@ -5,4 +5,5 @@ class Island < ApplicationRecord
   validates :location, presence: true
   has_many :bookings
   has_one_attached :photo
+  has_many_attached :photos
 end
