@@ -4,5 +4,5 @@ class Island < ApplicationRecord
   validates :price, presence: true
   validates :location, presence: true
   has_many :bookings
-  # validates :photo, presence: true
+  has_one_attached :photo
 end
