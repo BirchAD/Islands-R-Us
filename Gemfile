@@ -30,6 +30,11 @@ gem "jbuilder"
 # Add devise gemfile
 gem "devise"
 
+gem "dotenv-rails", groups: [:development, :test]
+
+gem "cloudinary"
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
