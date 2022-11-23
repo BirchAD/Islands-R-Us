@@ -4,10 +4,24 @@ class BookingsController < ApplicationController
 
   def index
     @bookings_i_made = Booking.where(user_id: current_user)
-    @bookings_requested_to_me = Booking.all
-    @bookings_requested_to_me.select do |booking|
+    @bookings_requested_to_me = Booking.all.select do |booking|
       current_user.islands.include?(booking.island)
     end
+    # @bookings_requested_to_me.select do |booking|
+    #   current_user.islands.include?(booking.island)
+    # end
+  end
+
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.accepted = true
+    @booking.save
+  end
+
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to user_bookings_path(current_user), status: :see_other
   end
 
   def new
