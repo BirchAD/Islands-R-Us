@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for @island do |f| %>
+    <%= f.input :name %>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.input :photos, label: 'Upload more photos:', as: :file, input_html: { multiple: true } %>
+    <%= f.button :submit, class: "btn-search" %>
+  <% end %>
+</div>
