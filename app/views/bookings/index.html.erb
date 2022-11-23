@@ -17,6 +17,7 @@
   </div>
 </div>
 <br>
+<% unless @bookings_requested_to_me.empty? %>
 <h1>Your Requests</h1>
 <div class="container">
   <div class="row" id="request row">
@@ -29,9 +30,11 @@
               <p>£<%= booking.total_price %></p>
           </div>
         <% end %>
-              <%= link_to "accept" %>
-              <%= link_to "decline" %>
+              <%= link_to "accept", booking_path(booking, accepted: true), data: { turbo_method: :patch }, class: "btn btn-success" %>
+              <%= link_to "decline", delete_booking_path(booking), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-dark" %>
       </div>
     <% end %>
   </div>
 </div>
+
+<% end %>

@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   resources :islands, only: %i[new create show index edit update destroy] do
     resources :bookings, only: %i[new create]
   end
+  get '/bookings/:id', to: 'bookings#destroy', as: :delete_booking
+  resources :bookings, only: :update
 end
