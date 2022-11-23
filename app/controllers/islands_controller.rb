@@ -21,7 +21,6 @@ class IslandsController < ApplicationController
     end
   end
 
-  end
   private
 
   def island_params
