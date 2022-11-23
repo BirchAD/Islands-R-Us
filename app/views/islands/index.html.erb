@@ -1,6 +1,8 @@
 <div class="container">
-  <% @islands.each do |island| %>
-  <%= link_to island_path(island), class:"text-decoration-none picture" do %>
+  <div class="row">
+    <% @islands.each do |island| %>
+      <div class="col md-4">
+        <%= link_to island_path(island), class:"text-decoration-none picture" do %>
           <div class="island">
             <ul>
               <li><%= island.name %></li>
@@ -10,6 +12,7 @@
             </ul>
           </div>
         <% end %>
-      <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
