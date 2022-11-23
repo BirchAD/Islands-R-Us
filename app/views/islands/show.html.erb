@@ -30,9 +30,9 @@
 
   <div class="icons">
     <ul>
-      <li class="btn-book"><%= link_to "Book now", "new_island_booking_path", class: "link-to-text" %></li>
-      <li class="btn-book"><%= link_to "Edit Island", "edit_island_path", class: "link-to-text" %></li>
-      <li class="btn-book"><%= link_to "Delete", "island_path(@island)", class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} %></li>
+      <li class="btn-book"><%= link_to "Book now", new_island_booking_path(@island), class: "link-to-text" %></li>
+      <li class="btn-book"><%= link_to "Edit Island",edit_island_path(@island), class: "link-to-text" %></li>
+      <li class="btn-book"><%= link_to "Delete", island_path(@island), class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} %></li>
     </ul>
   </div>
 </div>
