@@ -9,6 +9,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
+          <li>
+          <%= link_to "Add Island", new_island_path, class: "nav-link" %></li>
           <% if !current_user %>
             <li class="nav-item active">
               <%= link_to "Become a host", "#", class: "nav-link" %>
@@ -28,7 +30,7 @@
               <%# <%= image_tag "zakaria-ahada-VGR_ReUCqNw-unsplash", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <%# <% end %>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <%= link_to "Add Island", new_island_path, class: "dropdown-item" %>
+                <%= link_to "Add Island", new_island_path%>
                 <%# <%= link_to "Make booking", new_island_booking_path(current_user), class: "dropdown-item" %>
                 <%= link_to "My bookings", user_bookings_path(current_user), class: "dropdown-item" %>
                 <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
