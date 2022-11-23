@@ -9,18 +9,21 @@ h1, h2 {
 }
 
 .island {
-  margin: 70px auto;
-  padding: 20px;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
+  margin: 70px;
+  color: black;
+  // padding: 20px;
+  // border-radius: 5px;
+  // width: 30%;
+  // position: relative;
 }
 
 .island:hover {
-  margin-bottom: 150px auto;
-  padding: 50px;
-  background: rgb(178, 219, 216);
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
+  // margin-top: 100px;
+  // margin-bottom: 100px;
+  padding: 5px;
+  background: rgb(181, 221, 217);
+  // border-radius: 5px;
+  // width: 30%;
+  // position: relative;
+  transition: 1.5s;
 }
