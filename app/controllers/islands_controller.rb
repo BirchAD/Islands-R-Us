@@ -17,10 +17,11 @@ class IslandsController < ApplicationController
     if @island.save
       redirect_to island_path(@island), notice: 'Your island was successfully created.'
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity, notice: 'The island was not created.'
     end
   end
 
+  end
   private
 
   def island_params
