@@ -21,6 +21,22 @@ class IslandsController < ApplicationController
     end
   end
 
+  def edit
+    @island = Island.find(params[:id])
+  end
+
+  def update
+    @island = Island.find(params[:id])
+    @island.update(island_params)
+    redirect_to island_path(@island)
+  end
+
+  def destroy
+    @island = Island.find(params[:id])
+    @island.destroy
+    redirect_to islands_path, status: :see_other
+  end
+
   private
 
   def island_params
