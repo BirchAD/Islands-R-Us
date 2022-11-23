@@ -1,6 +1,37 @@
-<div class ="container" id="my-bookings">
-  <h1>Here are my bookings</h1>
+<h1>Your Bookings</h1>
+
+<div class="container">
+  <div class="row">
+    <% @bookings_i_made.each do |booking| %>
+      <div class="col md-4">
+        <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
+          <div class="island">
+              <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200>
+              <h5><%= booking.island.name %></h5>
+              <p><strong>£<%= booking.total_price %></strong></p>
+              <p><%= booking.island.description %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-<div class = "container" id="my-bookings-request">
-  <h1>Here are other users booking requests</h1>
+<br>
+<h1>Your Requests</h1>
+<div class="container">
+  <div class="row" id="request row">
+    <% @bookings_requested_to_me.each do |booking| %>
+      <div class="col md-4">
+        <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
+          <div class="island">
+              <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200>
+              <p><%= booking.island.name %></p>
+              <p>£<%= booking.total_price %></p>
+          </div>
+        <% end %>
+              <%= link_to "accept" %>
+              <%= link_to "decline" %>
+      </div>
+    <% end %>
+  </div>
 </div>
