@@ -10,7 +10,11 @@
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
           <li>
-          <%= link_to "Add Island", new_island_path, class: "nav-link" %></li>
+            <%= link_to "Add Island", new_island_path, class: "nav-link" %>
+          </li>
+          <li>
+            <%= link_to "My Bookings", user_bookings_path(current_user), class: "nav-link" %>
+          </li>
           <% if !current_user %>
             <li class="nav-item active">
               <%= link_to "Become a host", "#", class: "nav-link" %>
