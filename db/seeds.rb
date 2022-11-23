@@ -11,7 +11,7 @@ Island.destroy_all
 
 puts "creating new islands..."
 10.times do
-  Island.create!(name: Faker::Mountain.name, price: rand(2000..9000), location: Faker::Nation.capital_city)
+  Island.create!(name: Faker::Mountain.name, price: rand(2000..9000), location: Faker::Nation.capital_city, user: User.first)
 end
 
 puts "created #{Island.count} island"
