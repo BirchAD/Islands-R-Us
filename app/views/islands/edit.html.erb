@@ -7,6 +7,6 @@
     <%= f.button :submit, class: "btn-search" %>
   <% end %>
   <div class="mt-4">
-      <%= link_to "Delete", island_path(@island), class: "link-to-text btn-book", id: "btn-delete", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"}%>
+      <%= link_to "Delete", my_islands_path(current_user.id), class: "link-to-text btn-book", id: "btn-delete", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"}%>
   </div>
 </div>
