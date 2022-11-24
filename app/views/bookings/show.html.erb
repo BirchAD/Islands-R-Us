@@ -1,10 +1,18 @@
 <header class="banner-show"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
     url('<%= cl_image_path @booking.island.photos.first.key, crop: :fill %>')">
+    <% if @booking.accepted == true %>
     <h2 style="text-align:center; color:white;"> Congratulations! Your booking is confirmed!
       <br>
       Pack your bags, you're heading here on <%= @booking.start_date.strftime("%B %d, %Y")%>
-   </h1>
+   </h2>
+    <% else %>
+      <h2 style="text-align:center; color:white;">
+      Your booking request has been submitted for <%= @booking.island.name %> on <%= @booking.start_date.strftime("%B %d, %Y")%>
+      <br>
+      You will be notified when your booking has been accepted by the host.
+   </h2>
+   <% end %>
 </header>
 <div class="card-container">
   <div class="container mt-5">
@@ -19,7 +27,7 @@
       </p>
         <% else %>
       <p style="color: red">
-        Not confirmed
+        Not confirmed. Date Request Submitted: <%= Date.today.strftime('%B %d, %Y') %>
       <% end %>
     </p>
   </div>

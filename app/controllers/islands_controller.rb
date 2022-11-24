@@ -51,7 +51,7 @@ class IslandsController < ApplicationController
   def destroy
     @island = Island.find(params[:id])
     @island.destroy
-    redirect_to islands_path, status: :see_other
+    redirect_to user_bookings_path(current_user), status: :see_other
   end
 
   private
