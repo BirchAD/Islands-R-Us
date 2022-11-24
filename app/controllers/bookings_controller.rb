@@ -41,7 +41,7 @@ class BookingsController < ApplicationController
     @booking.price_per_night = @island.price
     @booking.total_price = @booking.price_per_night * (@booking.end_date - @booking.start_date)
     if @booking.save
-      redirect_to booking_path(@booking), notice: 'Your booking was successfully created.'
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity, notice: 'The booking was not created.'
     end
