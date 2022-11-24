@@ -1,15 +1,17 @@
-<div class="container">
+<div class="container bg-light">
   <div class="row">
     <% @islands.each do |island| %>
       <div class="col-lg-4">
         <%= link_to island_path(island), class:"text-decoration-none picture" do %>
-          <div class="island">
-            <ul>
-              <li><%= island.name %></li>
-              <li>£<%= island.price %> per night</li>
-              <li><%= island.location %></li>
+          <div class="card-trip my-4">
               <%= cl_image_tag island.photos.first.key, width: 200 unless island.photos.empty? %>
-            </ul>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= island.name %></h2>
+                  <p><%= island.location %></p>
+                </div>
+                <h2 class="card-trip-pricing">£<%= island.price %> per night</h2>
+              </div>
           </div>
         <% end %>
       </div>
