@@ -1,6 +1,22 @@
 class IslandsController < ApplicationController
   def index
     @islands = Island.all
+    if params[:query].present?
+      sql_query = <<~SQL
+      islands.name ILIKE :query
+      OR islands.location ILIKE :query
+      OR islands.description ILIKE :query
+      SQL
+      @islands = Island.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @islands = Island.all
+    end
+    @markers = @islands.geocoded.map do |island|
+      {
+        lat: island.latitude,
+        lng: island.longitude
+      }
+    end
   end
 
   def show
