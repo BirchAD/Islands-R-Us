@@ -1,4 +1,12 @@
-<div class="container bg-light">
+<div class="container">
+  <%= form_with url: islands_path, method: :get, class: "d-flex my-3" do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an island"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
   <div class="row">
     <% @islands.each do |island| %>
       <div class="col-lg-4">
@@ -17,4 +25,10 @@
       </div>
     <% end %>
   </div>
+</div>
+
+<div style="width: 100%; height: 600px;"
+  data-controller="map"
+  data-map-markers-value="<%= @markers.to_json %>"
+  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
