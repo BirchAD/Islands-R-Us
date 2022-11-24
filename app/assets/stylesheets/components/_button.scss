@@ -5,6 +5,13 @@
   padding: 12px;
   text-decoration: none;
   box-shadow: 2px 2px lightgray 2px;
+  transition: 0.25s;
+}
+
+.btn-search:hover {
+  background-color: #00A896;
+  color: white;
+  transition: 0.75s;
 }
 
 .btn-book {
@@ -19,12 +26,7 @@
 
 .btn-book:hover {
   background-color: #05668D;
-  border-radius: 5px;
   color: white;
-  padding: 12px;
-  margin-bottom: 100px;
-  text-decoration: none;
-  box-shadow: 2px 2px lightgray 2px;
   transition: 0.75s;
 }
 

@@ -5,6 +5,7 @@ class IslandsController < ApplicationController
 
   def show
     @island = Island.find(params[:id])
+    @booking = Booking.new
   end
 
   def new
