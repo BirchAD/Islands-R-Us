@@ -4,7 +4,7 @@
   <div class="row">
     <% @bookings_i_made.each do |booking| %>
       <div class="col md-4">
-        <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
+        <%= link_to booking_path(booking), class:"text-decoration-none picture" do %>
           <div class="island">
               <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200>
               <h5><%= booking.island.name %></h5>
