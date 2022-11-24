@@ -1,0 +1,15 @@
+<header class="banner-show"
+    style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+    url('<%= cl_image_path @booking.island.photos.first.key, crop: :fill %>')">
+    <h1 style="text-align:center"> Congratulations! Your booking is confirmed!
+      <br>
+      Pack your bags, you're heading here on <%= @booking.start_date.strftime("%B %d, %Y")%>
+   </h1>
+</header>
+<div class="container mt-5">
+  <h2>Your Booking Information:</h2>
+  <h3>Dates: <%= "#{@booking.start_date.strftime('%B %d, %Y')} to #{@booking.end_date.strftime('%B %d, %Y')}" %></h3>
+  <h3>Location: <%= @booking.island.location %></h3>
+  <h3>Total Price: <%= @booking.total_price %></h3>
+  <h3>Confirmation Status: <%= @booking.accepted == true ? "Confirmed" : "Unconfirmed" %> </h3>
+</div>
