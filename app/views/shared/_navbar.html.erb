@@ -3,6 +3,9 @@
       <%= link_to root_path, class: "navbar-brand" do %>
         <%= image_tag "https://res.cloudinary.com/dm6g22zui/image/upload/v1669114514/baaifrramr63ossu5e76.jpg" %>
       <% end %>
+      <%= link_to islands_path, class: "navbar-text" do %>
+        <%= image_tag "https://see.fontimg.com/api/renderfont4/2RGl/eyJyIjoiZnMiLCJoIjoxMzAsInciOjIwMDAsImZzIjo2NSwiZmdjIjoiIzAwMDAwMCIsImJnYyI6IiNGRkZGRkYiLCJ0IjoxfQ/SXNsYW5kcyBSIFVz/bite-chocolate.png" %>
+      <% end %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -10,7 +13,7 @@
         <ul class="navbar-nav me-auto">
           <%# if user_signed_in? %>
           <li>
-            <%= link_to "Add Island", new_island_path, class: "nav-link" %>
+            <%= link_to "Add Island", new_island_path, class: "nav-link" if user_signed_in?%>
           </li>
           <li>
             <%= link_to "My Bookings", user_bookings_path(current_user), class: "nav-link"  if user_signed_in?%>
