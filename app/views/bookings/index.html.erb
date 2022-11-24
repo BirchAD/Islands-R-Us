@@ -22,17 +22,19 @@
 <div class="container">
   <div class="row" id="request row">
     <% @bookings_requested_to_me.each do |booking| %>
-      <div class="col md-4">
-        <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
-          <div class="island">
-              <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200>
-              <p><%= booking.island.name %></p>
-              <p>£<%= booking.total_price %></p>
-          </div>
-        <% end %>
-              <%= link_to "accept", booking_path(booking, accepted: true), data: { turbo_method: :patch }, class: "btn btn-success" %>
-              <%= link_to "decline", delete_booking_path(booking), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-dark" %>
-      </div>
+      <% unless booking.accepted %>
+        <div class="col md-4">
+          <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
+            <div class="island">
+                <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200>
+                <p><%= booking.island.name %></p>
+                <p>£<%= booking.total_price %></p>
+            </div>
+          <% end %>
+                <%= link_to "accept", booking_path(booking, accepted: true), data: { turbo_method: :patch }, class: "btn btn-success" %>
+                <%= link_to "decline", delete_booking_path(booking), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-dark" %>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
