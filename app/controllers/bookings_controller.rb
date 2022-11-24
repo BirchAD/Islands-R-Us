@@ -15,7 +15,9 @@ class BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     @booking.accepted = true
-    @booking.save
+    if @booking.save
+      redirect_to user_bookings_path(current_user)
+    end
   end
 
   def destroy
