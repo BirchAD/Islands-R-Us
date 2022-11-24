@@ -10,4 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/cards"
+@import "components/cards";
+
+.home-container {
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+
+body {
+  background: linear-gradient(rgba(35, 132, 137, 0.7), rgba(242, 228, 213, 1));
+}
