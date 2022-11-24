@@ -4,9 +4,36 @@
   <div class="row">
     <% @bookings_i_made.each do |booking| %>
       <div class="col-lg-4">
-          <%= link_to booking_path(booking), class:"text-decoration-none picture" do %>
-            <div class="card-trip">
-              <%= cl_image_tag booking.island.photos.first.key, width: 200, class: 'img-size' unless booking.island.photos.empty? %>
+        <%= link_to booking_path(booking), class:"text-decoration-none picture" do %>
+          <div class="card-trip">
+            <%= cl_image_tag booking.island.photos.first.key, width: 200, class: 'img-size' unless booking.island.photos.empty? %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= booking.island.name %></h2>
+                <p><%= booking.island.location %></p>
+              </div>
+              <div>
+                <h2 class="card-trip-pricing">£<%= booking.total_price %></h2>
+                <p><%= booking.start_date %> - <%= booking.end_date %></p>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+  <br>
+<div class="container">
+  <% unless @bookings_requested_to_me.empty? %>
+    <h1>Your Requests</h1>
+    <div class="row">
+      <% @bookings_requested_to_me.each do |booking| %>
+        <% unless booking.accepted %>
+          <div class="col-md-4">
+            <%= link_to booking_path(booking), class:"text-decoration-none picture" do %>
+              <div class="card-trip">
+                <%= cl_image_tag booking.island.photos.first.key, width: 200, class: 'img-size' unless booking.island.photos.empty? %>
                 <div class="card-trip-infos">
                   <div>
                     <h2><%= booking.island.name %></h2>
@@ -17,47 +44,33 @@
                     <p><%= booking.start_date %> - <%= booking.end_date %></p>
                   </div>
                 </div>
-            </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-</div>
-    <br>
-    <br><br><br>
-  <br>
-  <% unless @bookings_requested_to_me.empty? %>
-  <h1>Your Requests</h1>
-  <div class="container">
-    <div class="row" id="request row">
-      <% @bookings_requested_to_me.each do |booking| %>
-        <% unless booking.accepted %>
-          <div class="col md-4">
-            <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
-              <div class="island">
-                  <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200>
-                  <p><%= booking.island.name %></p>
-                  <p>£<%= booking.total_price %></p>
               </div>
             <% end %>
-                  <%= link_to "accept", booking_path(booking, accepted: true), data: { turbo_method: :patch }, class: "btn btn-success" %>
-                  <%= link_to "decline", delete_booking_path(booking), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-dark" %>
+            <%= link_to "accept", booking_path(booking, accepted: true), data: { turbo_method: :patch }, class: "btn btn-success" %>
+            <%= link_to "decline", delete_booking_path(booking), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-dark" %>
           </div>
         <% end %>
       <% end %>
     </div>
-  </div>
-
   <% end %>
+</div>
+    <%# <div class="row" id="request row">
+      <% @bookings_requested_to_me.each do |booking| %>
+        <%# <% unless booking.accepted %>
+          <%# <div class="col md-4"> %>
+            <%# <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
+              <%# <div class="island"> %>
+                  <%# <img src="https://images.unsplash.com/photo-1559128010-7c1ad6e1b6a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8aXNsYW5kfGVufDB8fDB8fA%3D%3D&w=1000&q=80" alt="island" width=200> %>
+                  <%# <p><%= booking.island.name</p>  %>
+                  <%# <p>£<%= booking.total_price</p>  %>
+              <%# </div> %>
+            <%# <% end %>
+                  <%# <%= link_to "accept", booking_path(booking, accepted: true), data: { turbo_method: :patch }, class: "btn btn-success" %>
+                  <%# <%= link_to "decline", delete_booking_path(booking), data: {confirm: "Are you sure?"}, method: :delete, class: "btn btn-dark" %>
+          <%# </div> %>
+        <%# <% end %>
+      <%# <% end %>
+    <%# </div> %>
+  <%# </div> %>
 
-<%# <div class="card-trip">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
-  <div class="card-trip-infos">
-    <div>
-      <h2>Title here</h2>
-      <p>Short description here!</p>
-    </div>
-    <h2 class="card-trip-pricing">£99.99</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
-  </div>
-</div> %>
+  <%# <% end %>
