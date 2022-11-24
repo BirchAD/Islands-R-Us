@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-4" style="width: 50%">
   <%= simple_form_for @island do |f| %>
     <%= f.input :name %>
     <%= f.input :location %>
@@ -6,4 +6,7 @@
     <%= f.input :photos, label: 'Upload more photos:', as: :file, input_html: { multiple: true } %>
     <%= f.button :submit, class: "btn-search" %>
   <% end %>
+  <div class="mt-4">
+      <%= link_to "Delete", island_path(@island), class: "link-to-text btn-book", id: "btn-delete", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"}%>
+  </div>
 </div>
