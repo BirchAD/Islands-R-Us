@@ -4,7 +4,7 @@
   <div class="row">
     <% @bookings_i_made.each do |booking| %>
       <div class="col-lg-4">
-          <%= link_to island_path(booking.island), class:"text-decoration-none picture" do %>
+          <%= link_to booking_path(booking), class:"text-decoration-none picture" do %>
             <div class="card-trip">
               <%= cl_image_tag booking.island.photos.first.key, width: 200, class: 'img-size' unless booking.island.photos.empty? %>
                 <div class="card-trip-infos">

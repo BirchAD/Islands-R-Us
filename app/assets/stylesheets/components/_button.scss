@@ -8,15 +8,40 @@
 }
 
 .btn-book {
-  background-color: #05668D;
+  background-color: rgb(2, 128, 144);
   border-radius: 5px;
   color: white;
   padding: 12px;
   text-decoration: none;
   box-shadow: 2px 2px lightgray 2px;
+  transition: 0.25s;
+}
+
+.btn-book:hover {
+  background-color: #05668D;
+  border-radius: 5px;
+  color: white;
+  padding: 12px;
+  margin-bottom: 100px;
+  text-decoration: none;
+  box-shadow: 2px 2px lightgray 2px;
+  transition: 0.75s;
+}
+
+#btn-delete {
+  background-color: #E64848;
+}
+
+#btn-delete:hover {
+  background-color: #C21010;
 }
 
 .link-to-text {
   text-decoration: none;
-  color: white
+  color: white;
+}
+
+.link-to-text:hover {
+  text-decoration: none;
+  color: white;
 }

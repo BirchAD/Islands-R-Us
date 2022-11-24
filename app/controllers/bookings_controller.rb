@@ -30,14 +30,18 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def show
+    @booking = Booking.find(params[:id])
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.island = @island
     @booking.price_per_night = @island.price
     @booking.total_price = @booking.price_per_night * (@booking.end_date - @booking.start_date)
-    if @booking.save!
-      redirect_to island_path(@island), notice: 'Your booking was successfully created.'
+    if @booking.save
+      redirect_to booking_path(@booking), notice: 'Your booking was successfully created.'
     else
       render :new, status: :unprocessable_entity, notice: 'The booking was not created.'
     end

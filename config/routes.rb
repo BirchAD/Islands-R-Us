@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  resources :bookings, only: %i[update show]
+
   resources :users, only: :show do
     resources :bookings, only: :index
   end
@@ -12,5 +14,4 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   get '/bookings/:id', to: 'bookings#destroy', as: :delete_booking
-  resources :bookings, only: :update
 end

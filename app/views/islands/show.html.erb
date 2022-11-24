@@ -6,9 +6,15 @@
 
 <div class="card">
   <div>
-    <h3>Location: <%= @island.location %></h3>
-    <h3>Description: <%= @island.description %></h3>
-    <h3>Price: £ <%= @island.price %></h3>
+    <h5>Location:</h5>
+    <h3><%= @island.location %></h3>
+    <h5>---------------------------<h5>
+    <h5>Description:</h5>
+    <h3><%= @island.description %></h3>
+    <h5>---------------------------<h5>
+    <h5>Price:</h5>
+    <h3>£ <%= @island.price %> per night</h3>
+    <h5>---------------------------<h5>
   </div>
 
   <div class="icons">
@@ -29,10 +35,15 @@
   </div>
 
   <div class="icons">
-    <ul>
-      <li class="btn-book"><%= link_to "Book now", new_island_booking_path(@island), class: "link-to-text" %></li>
-      <li class="btn-book"><%= link_to "Edit Island",edit_island_path(@island), class: "link-to-text" %></li>
-      <li class="btn-book"><%= link_to "Delete", island_path(@island), class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} %></li>
-    </ul>
+    <% if @island.user_id == current_user.id %>
+      <ul>
+          <li class="btn-book"><%= link_to "Edit Island",edit_island_path(@island), class: "link-to-text" %></li>
+          <%# <li class="btn-book" id="btn-delete"><%= link_to "Delete", island_path(@island), class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} </li> %>
+      </ul>
+    <% else %>
+      <ul>
+          <li class="btn-book"><%= link_to "Book now", new_island_booking_path(@island), class: "link-to-text" %></li>
+      </ul>
+    <% end %>
   </div>
 </div>
