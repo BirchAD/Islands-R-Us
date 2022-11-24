@@ -7,9 +7,9 @@
    </h1>
 </header>
 <div class="container mt-5">
-  <h2>Your Booking Information:</h2>
-  <h3>Dates: <%= "#{@booking.start_date.strftime('%B %d, %Y')} to #{@booking.end_date.strftime('%B %d, %Y')}" %></h3>
-  <h3>Location: <%= @booking.island.location %></h3>
-  <h3>Total Price: <%= @booking.total_price %></h3>
-  <h3>Confirmation Status: <%= @booking.accepted == true ? "Confirmed" : "Unconfirmed" %> </h3>
+  <h2>Your Booking Information for <%= @booking.island.name %>:</h2>
+  <h4>Dates:</h4> <p><%= "#{@booking.start_date.strftime('%B %d, %Y')} to #{@booking.end_date.strftime('%B %d, %Y')}" %></p>
+  <h4>Location:</h4><p> <%= @booking.island.location %> </p>
+  <h4>Total Price:</h4><p> £<%="#{@booking.total_price} based on a price per night of £#{@booking.island.price} "%> </p>
+  <h4>Confirmation Status:</h4> <p><%= @booking.accepted == true ? "Confirmed" : "Unconfirmed" %></p>
 </div>
