@@ -1,34 +1,37 @@
-<div class="container">
+<div class="search-bar">
   <%= form_with url: islands_path, method: :get, class: "d-flex my-3" do %>
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
       placeholder: "Find an island"
     %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-search" %>
   <% end %>
-  <div class="row">
-    <% @islands.each do |island| %>
-      <div class="col-lg-4">
-        <%= link_to island_path(island), class:"text-decoration-none picture" do %>
-          <div class="card-trip my-4">
-              <%= cl_image_tag island.photos.first.key, width: 200 unless island.photos.empty? %>
-              <div class="card-trip-infos">
-                <div>
-                  <h2><%= island.name %></h2>
-                  <p><%= island.location %></p>
-                </div>
-                <h2 class="card-trip-pricing">£<%= island.price %> per night</h2>
-              </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
 </div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div class="main-container d-flex justify-content-between">
+  <div class="container" id="card-containers">
+    <div class="row">
+      <% @islands.each do |island| %>
+        <div class="col-lg-6">
+          <%= link_to island_path(island), class:"text-decoration-none picture" do %>
+            <div class="card-trip mt-4">
+                <%= cl_image_tag island.photos.first.key, width: 200 unless island.photos.empty? %>
+                <div class="card-trip-infos">
+                  <div>
+                    <h2><%= island.name %></h2>
+                    <p><%= island.location %></p>
+                  </div>
+                  <h2 class="card-trip-pricing">£<%= island.price %> per night</h2>
+                </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="map-box" style="width: 100%; height: 565px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
