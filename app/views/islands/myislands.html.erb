@@ -1,20 +1,31 @@
+  <% if @user_islands.empty? %>
+    <div
+      style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+      url('https://res.cloudinary.com/dm6g22zui/image/upload/v1669378134/cris-tagupa-lT7zmkth3o8-unsplash_xvi9ur.jpg');  background-position: center;  background-size: cover; text-align: center">
+      <div style="margin: auto; padding: 100px 0">
+        <h1 class="mt-5" style="color: white">You currently have no islands listed.</h1>
+        <h2 style="color:white">To list an island <%= link_to "click here", new_island_path, class: "btn-book", style: "color:white"  %></h2>
+      </div>
+    </div>
+    <% else %>
 <div class="container">
-  <h1>My Islands</h1>
-  <div class="row">
-    <% @user_islands.each do |island| %>
-      <div class="col-lg-4">
-        <%= link_to island_path(island), class:"text-decoration-none picture" do %>
-          <div class="card-trip">
-            <%= cl_image_tag island.photos.first.key, width: 200, class: 'img-size' unless island.photos.empty? %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= island.name %></h2>
-                <p><%= island.location %></p>
+    <h1>My Islands</h1>
+    <div class="row">
+      <% @user_islands.each do |island| %>
+        <div class="col-lg-4">
+          <%= link_to island_path(island), class:"text-decoration-none picture" do %>
+            <div class="card-trip">
+              <%= cl_image_tag island.photos.first.key, width: 200, class: 'img-size' unless island.photos.empty? %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= island.name %></h2>
+                  <p><%= island.location %></p>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
