@@ -1,6 +1,6 @@
 <header class="banner-show"
     style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
-    url('<%= cl_image_path @booking.island.photos.first.key, crop: :fill %>')">
+    url('<%= cl_image_path @booking.island.photos.first.key, crop: :fill %>'); height: 15rem;">
     <% if @booking.accepted == true %>
     <h2 style="text-align:center; color:white;"> Congratulations! Your booking is confirmed!
       <br>
@@ -14,23 +14,25 @@
    </h2>
    <% end %>
 </header>
-<div class="card-container" style="text-align:center;">
-  <div class="container mt-5">
-    <h2>Your Booking Request:</h2>
-    <h4>Dates:</h4> <p><%= "#{@booking.start_date.strftime('%B %d, %Y')} to #{@booking.end_date.strftime('%B %d, %Y')}" %></p>
-    <h4>Location:</h4><p> <%= @booking.island.location %> </p>
-    <h4>Total Price:</h4><p> £<%="#{@booking.total_price} based on a price per night of £#{@booking.island.price} "%> </p>
-    <h4>Booking Status:</h4>
-      <% if @booking.accepted == true %>
-      <p style="color: green">
-        Confirmed
-      </p>
-        <% else %>
-      <p style="color: red">
-        Not confirmed.
-        <br>
-        Date Request Submitted: <%= Date.today.strftime('%B %d, %Y') %>
-      <% end %>
-    </p>
+<div class="card mb-3 mt-3 pt-0" style="width: 40rem; margin: auto; background-color: rgba(0,0,0,0);">
+    <div class="card-container p-0" style="margin: auto; text-align:center;">
+      <div class="container mt-5">
+        <h2 style="color:black">Your Booking Request:</h2>
+        <h4>Dates:</h4> <p><%= "#{@booking.start_date.strftime('%B %d, %Y')} to #{@booking.end_date.strftime('%B %d, %Y')}" %></p>
+        <h4>Location:</h4><p> <%= @booking.island.location %> </p>
+        <h4>Total Price:</h4><p> £<%="#{@booking.total_price} based on a price per night of £#{@booking.island.price} "%> </p>
+        <h4>Booking Status:</h4>
+          <% if @booking.accepted == true %>
+          <p style="color: green">
+            Confirmed
+          </p>
+            <% else %>
+          <p style="color: red">
+            Not confirmed.
+            <br>
+            Date Request Submitted: <%= Date.today.strftime('%B %d, %Y') %>
+          <% end %>
+        </p>
+      </div>
+    </div>
   </div>
-</div>
