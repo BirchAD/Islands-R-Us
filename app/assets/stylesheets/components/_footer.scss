@@ -26,6 +26,12 @@
   opacity: 1;
 }
 
-.footer-copyright {
-  text-decoration: none !important;
+.foot-link {
+  text-decoration: none;
+  color: rgba(0,0,0,0.3);
+}
+
+.foot-link:hover {
+  color: black;
+  opacity: 1;
 }
