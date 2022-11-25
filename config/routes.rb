@@ -14,4 +14,5 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
   get '/bookings/:id', to: 'bookings#destroy', as: :delete_booking
+  get '/users/:user_id/islands', to: 'islands#myislands', as: :my_islands
 end
