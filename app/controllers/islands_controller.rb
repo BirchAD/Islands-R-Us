@@ -14,7 +14,8 @@ class IslandsController < ApplicationController
     @markers = @islands.geocoded.map do |island|
       {
         lat: island.latitude,
-        lng: island.longitude
+        lng: island.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {island: island})
       }
     end
   end
