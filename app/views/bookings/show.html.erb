@@ -4,7 +4,7 @@
     <% if @booking.accepted == true %>
     <h2 style="text-align:center; color:white;"> Congratulations! Your booking is confirmed!
       <br>
-      Pack your bags, you're heading here on <%= @booking.start_date.strftime("%B %d, %Y")%>
+      Hooray! Your booking was confirmed by the host! Pack your bags, you're heading here on <%= @booking.start_date.strftime("%B %d, %Y")%>
    </h2>
     <% else %>
       <h2 style="text-align:center; color:white;">
