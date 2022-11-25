@@ -18,6 +18,9 @@
           <li>
             <%= link_to "My Bookings", user_bookings_path(current_user), class: "nav-link"  if user_signed_in?%>
           </li>
+            <li>
+            <%= link_to "My Islands", my_islands_path(current_user.id), class: "nav-link"  if user_signed_in?%>
+          </li>
           <% if !current_user %>
             <li class="nav-item active">
               <%= link_to "Become a host", "#", class: "nav-link" %>
