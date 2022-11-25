@@ -1,0 +1,24 @@
+.search-bar {
+  position: fixed;
+  width: 100%;
+  padding: 12px 12px;
+  top: 60px;
+  z-index: 4;
+}
+
+.map-box {
+  position: sticky;
+  padding-right: 12px;
+  top: 155px;
+  right: 12px;
+  margin-bottom: 23px;
+  margin-left: 20px;
+  margin-top: 7em;
+}
+
+#card-containers {
+  top: 155px;
+  margin-top: 3.8em;
+  right: 12px;
+  margin-bottom: 23px;
+}
