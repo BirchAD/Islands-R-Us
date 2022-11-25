@@ -10,8 +10,10 @@ h3 {
 
 .card {
   padding: 50px;
-  margin-bottom: 10px;
-  font-size: 5rem;
+  margin: 20px;
+  width: 40%;
+  border-radius: 2%;
+  // font-size: 5rem;
 }
 
 .island {
@@ -47,4 +49,9 @@ h3 {
 }
 .icons li{
   display: inline;
+}
+
+.box {
+  display: flex;
+  justify-content: space-evenly;
 }
