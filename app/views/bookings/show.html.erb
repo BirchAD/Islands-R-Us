@@ -8,15 +8,15 @@
    </h2>
     <% else %>
       <h2 style="text-align:center; color:white;">
-      Your booking request has been submitted for <%= @booking.island.name %> on <%= @booking.start_date.strftime("%B %d, %Y")%>
+      Your booking request has been submitted for <%= @booking.island.name %>
       <br>
       You will be notified when your booking has been accepted by the host.
    </h2>
    <% end %>
 </header>
-<div class="card-container">
+<div class="card-container" style="text-align:center;">
   <div class="container mt-5">
-    <h2>Your Booking Information for <%= @booking.island.name %>:</h2>
+    <h2>Your Booking Request:</h2>
     <h4>Dates:</h4> <p><%= "#{@booking.start_date.strftime('%B %d, %Y')} to #{@booking.end_date.strftime('%B %d, %Y')}" %></p>
     <h4>Location:</h4><p> <%= @booking.island.location %> </p>
     <h4>Total Price:</h4><p> £<%="#{@booking.total_price} based on a price per night of £#{@booking.island.price} "%> </p>
@@ -27,7 +27,9 @@
       </p>
         <% else %>
       <p style="color: red">
-        Not confirmed. Date Request Submitted: <%= Date.today.strftime('%B %d, %Y') %>
+        Not confirmed.
+        <br>
+        Date Request Submitted: <%= Date.today.strftime('%B %d, %Y') %>
       <% end %>
     </p>
   </div>
