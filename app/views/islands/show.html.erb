@@ -4,6 +4,10 @@
     <h1> <%= @island.name  %> <h1>
 </header>
 
+<% reviews1 = ["So good! we loved the weather and fresh air.", "I am so grateful I took this vacation, the place was perfect.", "Had a yoga retreat and this island had just the right vibe.", "Went there for my recent honeymoon! Couldn't have asked for a better place", "Surfing paradise! I am definitely coming back soon."] %>
+<% reviews2 = ["Beautiful place!", "Very cozy to stay in the island huts, felt vey safe and relaxed at all times.", "Life changing.", "Felt like in another planet! This island is the ultimate place to be in this earth, warning you, you won't want to leave.", "Felt so great at the island, the everyday breeze was perfection."] %>
+<% reviews3 = ["In love with this place", "Awesome place with loads of areas, glad we had three available helipads!", "The airplane runway could be better, but other than that, great place.", "Ultimate connection you can get with nature, went in the winter and the weather was perfect.", "Had the most amazing family vacation here!"] %>
+
 <div class="box">
   <div class="card">
     <div>
@@ -27,10 +31,8 @@
         <li><i class="fa-solid fa-sailboat"></i></li>
         <li><i class="fa-solid fa-wifi"></i></li>
         <li><i class="fa-solid fa-bicycle"></i></li>
-        <li><i class="fa-solid fa-bath"></i></li>
         <li><i class="fa-solid fa-fish"></i></li>
         <li><i class="fa-solid fa-robot"></i></li>
-        <li><i class="fa-solid fa-dice"></i></li>
         <li><i class="fa-solid fa-volcano"></i></li>
       </ul>
     </div>
@@ -54,13 +56,45 @@
       <% end %>
     </div>
   </div>
-  <div class="card">
-    <div>
-    <%= simple_form_for [@island, @booking] do |f| %>
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
-      <%= f.button :submit, class: "btn-search" %>
-    <% end %>
-    </div>
-  </div>
+  <% if user_signed_in? %>
+        <% if @island.user_id == current_user.id %>
+        <div class="card">
+              <div>
+              <h5>Reviews:</h5>
+          <ul>
+              <li class="review"><%= reviews1[rand(0..4)] %> - Guest</li>
+              <li class="review"><%= reviews2[rand(0..4)] %> - Guest</li>
+              <li class="review"><%= reviews3[rand(0..4)] %> - Guest</li>
+          </ul>
+              </div>
+        </div>
+              <%# <li class="btn-book" id="btn-delete"><%= link_to "Delete", island_path(@island), class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} </li> %>
+        <% else %>
+          <div class="card">
+            <div>
+            <%= simple_form_for [@island, @booking] do |f| %>
+              <%= f.input :start_date %>
+              <%= f.input :end_date %>
+              <%= f.button :submit, class: "btn-search" %>
+            <% end %>
+            </div>
+          </div>
+          <ul>
+              <%# <li class="btn-book"><%= link_to "Book now", new_island_booking_path(@island), class: "link-to-text" </li> %>
+          </ul>
+        <% end %>
+  <% else %>
+        <div class="card">
+              <div>
+              <%= simple_form_for [@island, @booking] do |f| %>
+                <%= f.input :start_date %>
+                <%= f.input :end_date %>
+                <%= f.button :submit, class: "btn-search" %>
+              <% end %>
+              </div>
+        </div>
+            <ul>
+                <%# <li class="btn-book"><%= link_to "Book now", new_island_booking_path(@island), class: "link-to-text" </li> %>
+            </ul>
+  <% end %>
 </div>
