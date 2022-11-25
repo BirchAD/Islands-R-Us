@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   end
   get '/bookings/:id', to: 'bookings#destroy', as: :delete_booking
   get '/users/:user_id/islands', to: 'islands#myislands', as: :my_islands
+  # get '/islands/:id', to: 'islands#destroy', as: :delete_island
 end
