@@ -1,20 +1,25 @@
 <div class="container">
-  <h1>My Islands</h1>
-  <div class="row">
-    <% @user_islands.each do |island| %>
-      <div class="col-lg-4">
-        <%= link_to island_path(island), class:"text-decoration-none picture" do %>
-          <div class="card-trip">
-            <%= cl_image_tag island.photos.first.key, width: 200, class: 'img-size' unless island.photos.empty? %>
-            <div class="card-trip-infos">
-              <div>
-                <h2><%= island.name %></h2>
-                <p><%= island.location %></p>
+  <% if @user_islands.empty? %>
+    <h1 class="mt-5" style="color: white">You currently have no islands listed.</h1>
+    <h2 style="color:white">To list an island click 👉 <%= link_to "here", new_island_path, class: "btn btn-success btn-lg", style: "color:white"  %></h2>
+    <% else %>
+    <h1>My Islands</h1>
+    <div class="row">
+      <% @user_islands.each do |island| %>
+        <div class="col-lg-4">
+          <%= link_to island_path(island), class:"text-decoration-none picture" do %>
+            <div class="card-trip">
+              <%= cl_image_tag island.photos.first.key, width: 200, class: 'img-size' unless island.photos.empty? %>
+              <div class="card-trip-infos">
+                <div>
+                  <h2><%= island.name %></h2>
+                  <p><%= island.location %></p>
+                </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
