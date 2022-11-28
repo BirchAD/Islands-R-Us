@@ -1,5 +1,5 @@
 .btn-search {
-  background-color: #02C39A;
+  background-color: #9D4EDD;
   border-radius: 5px;
   color: white;
   padding: 12px;
@@ -9,7 +9,7 @@
 }
 
 .btn-search-home {
-  background-color: #02C39A;
+  background-color: #9D4EDD;
   border-radius: 5px;
   color: white;
   padding: 12px;
@@ -19,13 +19,19 @@
 }
 
 .btn-search:hover {
-  background-color: #00A896;
+  background-color: #7B2CBF;
+  color: white;
+  transition: 0.75s;
+}
+
+.btn-search-home:hover {
+  background-color: #7B2CBF;
   color: white;
   transition: 0.75s;
 }
 
 .btn-book {
-  background-color: rgb(2, 128, 144);
+  background-color: #9D4EDD;
   border-radius: 5px;
   color: white;
   padding: 12px;
@@ -35,7 +41,7 @@
 }
 
 .btn-book:hover {
-  background-color: #05668D;
+  background-color: #7B2CBF;
   color: white;
   transition: 0.75s;
 }

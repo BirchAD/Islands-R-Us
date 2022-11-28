@@ -11,29 +11,21 @@
 <div class="box">
   <div class="card">
     <div>
-      <h5>Location:</h5>
-      <h3><%= @island.location %></h3>
-      <h5>---------------------------<h5>
       <h5>Description:</h5>
       <h3><%= @island.description %></h3>
-      <h5>---------------------------<h5>
+      <h5>Lasts:</h5>
+      <h3>3 months</h3>
+      <h5>Where to buy:</h5>
+      <h3><%= @island.location %></h3>
       <h5>Price:</h5>
-      <h3>£ <%= @island.price %> per night</h3>
+      <h3>£ <%= @island.price %></h3>
       <h5>---------------------------<h5>
     </div>
 
     <div class="icons">
       <ul>
         <li><i class="fa-solid fa-house"></i></li>
-        <li><i class="fa-solid fa-helicopter-symbol"></i></li>
-        <li><i class="fa-solid fa-water-ladder"></i></li>
-        <li><i class="fa-solid fa-plane"></i></li>
-        <li><i class="fa-solid fa-sailboat"></i></li>
-        <li><i class="fa-solid fa-wifi"></i></li>
-        <li><i class="fa-solid fa-bicycle"></i></li>
-        <li><i class="fa-solid fa-fish"></i></li>
-        <li><i class="fa-solid fa-robot"></i></li>
-        <li><i class="fa-solid fa-volcano"></i></li>
+        <li><i class="fa-solid fa-soap"></i></li>
       </ul>
     </div>
 
@@ -41,7 +33,7 @@
       <% if user_signed_in? %>
         <% if @island.user_id == current_user.id %>
           <ul>
-              <li class="btn-book"><%= link_to "Edit Island",edit_island_path(@island), class: "link-to-text" %></li>
+              <li class="btn-book"><%= link_to "Edit",edit_island_path(@island), class: "link-to-text" %></li>
               <%# <li class="btn-book" id="btn-delete"><%= link_to "Delete", island_path(@island), class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} </li> %>
           </ul>
         <% else %>
@@ -60,12 +52,7 @@
         <% if @island.user_id == current_user.id %>
         <div class="card">
               <div>
-              <h5>Reviews:</h5>
-          <ul>
-              <li class="review"><%= reviews1[rand(0..4)] %> - Guest</li>
-              <li class="review"><%= reviews2[rand(0..4)] %> - Guest</li>
-              <li class="review"><%= reviews3[rand(0..4)] %> - Guest</li>
-          </ul>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4QxmleZeu9s?controls=0&amp;start=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               </div>
         </div>
               <%# <li class="btn-book" id="btn-delete"><%= link_to "Delete", island_path(@island), class: "link-to-text", data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete this island"} </li> %>

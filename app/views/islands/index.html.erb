@@ -3,7 +3,7 @@
     <%= text_field_tag :query,
       params[:query],
       class: "form-control",
-      placeholder: "Find an island"
+      placeholder: "Find product"
     %>
     <%= submit_tag "Search", class: "btn btn-search" %>
   <% end %>
@@ -21,7 +21,7 @@
                     <h2><%= island.name %></h2>
                     <p><%= island.description %></p>
                   </div>
-                  <h2 class="card-trip-pricing">£<%= island.price %> per night</h2>
+                  <h2 class="card-trip-pricing">£<%= island.price %></h2>
                 </div>
             </div>
           <% end %>

@@ -4,7 +4,8 @@
     <%= f.input :description %>
     <%= f.input :location %>
     <%= f.input :price %>
-    <%= f.input :photos, label: 'Upload a selection of island photos:', as: :file, input_html: { multiple: true } %>
+    <%= f.input :photos, label: 'Upload a photo:', as: :file, input_html: { multiple: true } %>
+    <%# Where is "Create Island" text for the button?%>
     <%= f.button :submit, class: "btn-search" %>
   <% end %>
 </div>
