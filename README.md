@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+#Welcome to Islands-R-Us.
+
+##An Airbnb "clone" developed by a team of 4 during the Le Wagon bootcamp over 5 working days.
