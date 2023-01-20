@@ -6,6 +6,7 @@
   text-decoration: none;
   box-shadow: 2px 2px lightgray 2px;
   transition: 0.25s;
+  margin-left: 10px;
 }
 
 .btn-search-home {
@@ -62,21 +63,4 @@
 .link-to-text:hover {
   text-decoration: none;
   color: white;
-}
-
-.btn-search {
-  background-color: rgb(2, 128, 144);
-  border-radius: 5px;
-  color: white;
-  padding: 12px;
-  text-decoration: none;
-  box-shadow: 2px 2px lightgray 2px;
-  transition: 0.25s;
-}
-
-
-.btn-search:hover {
-  background-color: #05668D;
-  color: white;
-  transition: 0.75s;
 }
